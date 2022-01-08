@@ -12,18 +12,20 @@ import java.awt.event.*;
 import java.io.File;
 
 import filesReadWrite.*;
+
+
 import java.util.HashSet;
 
 public final class SideBarMenuFunctions extends JPanel implements ActionListener{
 
 // need to read file
     
-    public String[] workSpacesList = {"First","Second"};
-
+    
     JPanel firstHalfSideJPanel = new JPanel();
     static JPanel secondHalfSidPanel = new JPanel();
     //on first
-    JComboBox comboBox_JComboBox = new JComboBox(workSpacesList);
+    static JComboBox<String> comboBox_JComboBox = new JComboBox<>();
+    public static String comboBox_JComboBoxSelection = (String) comboBox_JComboBox.getSelectedItem();
     JButton workAreaAdd_JButton = new JButton();
 
     //on second
@@ -33,6 +35,7 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
 
     //files
     static HashSet<String> files_jlabelNames = new HashSet<String>();
+    static HashSet<String> workAreaListDirectory = new HashSet<>();
     static Items files_JLabel;
     //static JLabel files_JLabel;
 
@@ -43,8 +46,18 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         add(firstHalfSideJPanel);
         add(secondHalfSidPanel);
+
+        workAreaListDirectory = ReadFile.getAllFolders();
         
-    
+        
+        
+        for (String items : workAreaListDirectory){
+            comboBox_JComboBox.addItem(items);
+            
+           
+        }
+        
+        
         firstHalfSideJPanel.add(comboBox_JComboBox);
         comboBox_JComboBox.setPreferredSize(new Dimension(200,20));
         comboBox_JComboBox.addActionListener(this);
@@ -58,9 +71,14 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
         //here will effectvly add all the items that will rappresent the files in json.
         //this just an example
         items.setSize(new Dimension(50,50));
-        items.setText("Here the new items will appear");
+        items.setText("<html>Welcome back!<br/>Select A WorkArea</html>");
         secondHalfSidPanel.add(items);
-        addItemsToSecondSide("giancarlo");
+        
+        addItemsToSecondSide("");
+        secondHalfSidPanel.repaint();
+        secondHalfSidPanel.revalidate();
+        
+        
     }
 
 
@@ -69,7 +87,14 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==comboBox_JComboBox){
         // TODO Auto-generated method stub
-        System.out.println(comboBox_JComboBox.getSelectedItem());
+        //System.out.println(comboBox_JComboBox.getSelectedItem());
+        comboBox_JComboBoxSelection = (String) comboBox_JComboBox.getSelectedItem();
+        System.out.println(comboBox_JComboBoxSelection);
+        secondHalfSidPanel.removeAll();
+        files_jlabelNames.clear();
+        addItemsToSecondSide("");
+        secondHalfSidPanel.repaint();
+        secondHalfSidPanel.revalidate();
 
         }
     }
@@ -79,15 +104,19 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
         }
         addWorkArea.setVisible(true);
         addWorkArea.workArea_MainPanel.setVisible(true);
-        addWorkArea.makeNewBoard_Jpanel.setVisible(false);
+        addWorkArea.makeNewBoard_JPanel.setVisible(false);
         addWorkArea.newBoard_JButton.setVisible(true);
     }
     static void addItemsToSecondSide(String newFilename){
-        File folder = new File("files");   
+        
+        if (comboBox_JComboBoxSelection != null) {
+        File folder = new File("files/" + comboBox_JComboBoxSelection + "/");   
+       
         HashSet<String> files = ReadFile.getReadAllFilesName(folder);
 
         for (final String file : files){
            // if(files_JLabel.getName() == file) {}
+           if (ReadFile.readFile("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" +file+ ".csv","fileType") != "nodata")
            if(!(files_jlabelNames.contains(file))) {
 
             files_JLabel = new Items(file);
@@ -95,13 +124,13 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
             secondHalfSidPanel.add(files_JLabel);
             
             files_jlabelNames.add(file);
-            if(newFilename != null) {
+            if(newFilename != null && newFilename != "") {
                 
                 files_jlabelNames.add(newFilename);
             }
             System.out.println("I added this item in the halfmenu - : " + files_JLabel.getName());
            }
-        }
+        }}
     }
     static void repaintThis(){
         secondHalfSidPanel.repaint();

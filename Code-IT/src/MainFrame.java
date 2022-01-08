@@ -82,6 +82,7 @@ class MainFrame extends JFrame{
         this.repaint(); // refresh the window
         this.add(mainFrame); // the actual main frame panel added
         mainFrame.setBackground(Color.BLACK); // make the mainframe black
+        
         mainFrame.setLayout(new BorderLayout()); //use the borderlayout manager
         mainFrame.add(leftSideBar, BorderLayout.LINE_START); // left side bar added.
        // mainFrame.add(leftSideBarMenu, BorderLayout.CENTER);
@@ -113,4 +114,5 @@ class MainFrame extends JFrame{
         workArea.setVisible(false);
         Panel.setVisible(true);
     }
+   
 }

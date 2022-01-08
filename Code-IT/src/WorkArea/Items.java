@@ -16,6 +16,7 @@ public class Items extends JLabel {
     ImageIcon imageIcon;
     
     Items(String file){
+        
         items_button = new JButton();
         items_button.setSize(new Dimension(200,20));
 
@@ -24,7 +25,8 @@ public class Items extends JLabel {
 
         this.setName(file);
         this.setPreferredSize(new Dimension(200,20));
-        this.setText(file + " " + ReadFile.readFile("files/" +file+ ".csv","fileType"));
+        
+        this.setText(file + " " + ReadFile.readFile("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" +file+ ".csv","fileType"));
 
         this.setBackground(Color.CYAN);
         this.setOpaque(true);

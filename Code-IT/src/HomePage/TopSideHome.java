@@ -17,6 +17,7 @@ class TopSideHome extends JPanel {
     TopSideHome(){
         this.setBackground(Color.GREEN);
         this.setPreferredSize(new Dimension(100,100));
+        
         this.setLayout(new BorderLayout(5,5));
         welcomeTextSettings();
         rapidResearchButtonSetiings();
@@ -35,7 +36,7 @@ class TopSideHome extends JPanel {
     void topSideSettings(){
         topSide_JLabel.setPreferredSize(new Dimension(250,250));
         topSide_JLabel.setText("<html>Welcome back!<br/>Im Happy to see you!</html>");
-        topSide_JLabel.setOpaque(true);
+        topSide_JLabel.setOpaque(true); 
         topSide_JLabel.setBackground(Color.orange);
         this.add(topSide_JLabel);
     }

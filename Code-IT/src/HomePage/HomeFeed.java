@@ -10,7 +10,7 @@ class HomeFeed extends JLabel{
     HomeFeed(){
         this.setOpaque(true);
         this.setBackground(Color.CYAN);
-        
+    
         
     }
 }

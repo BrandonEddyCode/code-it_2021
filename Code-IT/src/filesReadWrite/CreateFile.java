@@ -6,10 +6,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 
+
+import WorkArea.SideBarMenuFunctions;
+
+
 public class CreateFile {
     public static void createFile(String filename){
         try {
-            File myObj = new File("files/" + filename + ".csv");
+            File myObj = new File("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" + filename + ".csv");
             if (myObj.createNewFile()) {
                 System.out.println("File Created: " + myObj.getName());
 
@@ -24,7 +28,7 @@ public class CreateFile {
 
     public static void writeFile(String filename,String Type){
         try {
-            FileWriter myWriter = new FileWriter("files/" + filename + ".csv");
+            FileWriter myWriter = new FileWriter("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" + filename + ".csv");
             myWriter.write("Type,");
             myWriter.write("Name,");
             myWriter.write("Options,");
@@ -37,5 +41,14 @@ public class CreateFile {
             System.out.println("an error occured.");
             e.printStackTrace();
         }
+    }
+
+    public static void createFolder(String workArea){
+        File newDirectory = new File("files/"+workArea);
+        if (!newDirectory.exists()){
+            newDirectory.mkdirs();
+            System.out.println("x");
+        }
+        
     }
 }

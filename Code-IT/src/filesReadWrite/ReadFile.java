@@ -1,5 +1,6 @@
 package filesReadWrite;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.HashSet;
@@ -17,6 +18,7 @@ public class ReadFile {
         for (final File fileEntry : folder.listFiles()) {
             if (fileEntry.isDirectory()) {
                     getReadAllFilesName(fileEntry);
+                    
             } else {
                 
                 String fileName = fileEntry.getName();
@@ -28,10 +30,33 @@ public class ReadFile {
                 
             }
         }
+        
         return files;
     }
-    //i completelly forgot
-
+   
+    public static HashSet<String> getAllFolders(){
+        HashSet<String> folders = new HashSet<>();
+        File dir = new File("files");
+        File[] files = dir.listFiles();
+        FileFilter fileFilter = new FileFilter() {
+            public boolean accept(File file) {
+                return file.isDirectory();
+            }
+        };
+        files = dir.listFiles(fileFilter);
+        if (files.length == 0) {
+            //System.out.println("Either dir does not exist or is not a directory");
+         } else {
+            for (int i = 0; i< files.length; i++) {
+               File filename = files[i];
+               String trim = filename.toString().replace("files\\", "");
+               folders.add(trim);
+               
+            }
+         }
+         return folders;
+         
+    }
 
     public static String readFile(String filename,String WhatReturn){
         
@@ -82,8 +107,7 @@ public class ReadFile {
             //System.out.println(fileType);
             
         } catch (FileNotFoundException e ){
-            System.out.println("an error occured. i didnt find the file");
-            e.printStackTrace();
+            
         } 
 
         
