@@ -13,7 +13,7 @@ class TopSideHome extends JPanel {
     JButton rapidResearchButton_JButton = new JButton();
     JLabel topSide_JLabel = new JLabel();
     
-
+// muidauofbeav w ew siweo  :))
     TopSideHome(){
         this.setBackground(Color.GREEN);
         this.setPreferredSize(new Dimension(100,100));
