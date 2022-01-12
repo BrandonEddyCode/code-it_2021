@@ -8,6 +8,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.*;
+import MyWorkArea.*;
+
 
 class MainFrame extends JFrame{
     JPanel mainFrame = new JPanel(); //this is the actual Mainframe , invisible panel where all the elements will bi attached
@@ -17,6 +19,7 @@ class MainFrame extends JFrame{
    // SideBarMenu leftSideBarMenu = new SideBarMenu(); //?? i dont remember
     HomePage homePage = new HomePage(); // this is the homepage
     WorkArea workArea = new WorkArea(); // this is the workArea Page
+    MyWork myWork = new MyWork();
     
 
     Boolean useStartupVideo = false; // setting if want to use the initial video
@@ -89,6 +92,7 @@ class MainFrame extends JFrame{
         mainFrame.add(centre); // this is the centre of the screen / by default is BorderLayout.center
         centre.add(homePage); //homepage added 
         centre.add(workArea); // work area page added 
+        centre.add(myWork);
         
     
         
@@ -102,7 +106,7 @@ class MainFrame extends JFrame{
     void sideBarButtonsListeners(){
         leftSideBar.button.addActionListener(e -> switchhomes(homePage));
         leftSideBar.button2.addActionListener(e -> switchhomes(workArea));
-        leftSideBar.button3.addActionListener(e -> switchhomes(null));
+        leftSideBar.button3.addActionListener(e -> switchhomes(myWork));
         leftSideBar.button4.addActionListener(e -> switchhomes(null));
         leftSideBar.button5.addActionListener(e -> switchhomes(null));
     }
@@ -112,6 +116,7 @@ class MainFrame extends JFrame{
     void switchhomes(JPanel Panel){
         homePage.setVisible(false);
         workArea.setVisible(false);
+        myWork.setVisible(false);
         Panel.setVisible(true);
     }
    

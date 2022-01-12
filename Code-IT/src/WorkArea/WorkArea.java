@@ -19,6 +19,7 @@ public class WorkArea extends JPanel {
     }
     void makeSideBarMenu(){
         this.add(sideBarMenu,BorderLayout.WEST);
+        this.add(boardPanel,BorderLayout.CENTER);
     }
     
 }
