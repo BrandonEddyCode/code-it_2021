@@ -6,6 +6,12 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Color;
 
+
+/*to do make the boxes around the frame
+look up how to make small openable click boxes
+make 4 boarders.
+*/
+
 public class MyWork extends JPanel{
 JPanel myLabel;
 JButton addButton;
