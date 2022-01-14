@@ -3,6 +3,7 @@ package MyWorkArea;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Color;
 
@@ -11,32 +12,31 @@ JPanel myLabel;
 JButton addButton;
 
 
+//another class
+MyWorkAreaItems myWorkAreaItems;
+
+
  public MyWork(){
      // settings of mywork
-        this.setBackground(Color.BLUE);
-        this.setLayout(new BorderLayout(0,0));
+        this.setBackground(Color.green);
+        this.setLayout(new GridLayout());
         this.setVisible(false);
         this.setPreferredSize(new Dimension(300,300));
         this.setOpaque(true);
-    //setting for mylable
-    myLabel= new JPanel();
-    //setting for addbutton
-    addButton = new JButton("Add");
-    addButton.addActionListener(e -> addButtonFunction());
+    
 
+         //topsidepanel
+        
+        
+         //centrerpanel
+         //topsidecentrepanel
+         this.add(new MyWorkAreaItems("Overdue"));
+         this.add(new MyWorkAreaItems("coglionbe"));
+         this.add(new MyWorkAreaItems("Overdue"));
+         this.add(new MyWorkAreaItems("Overdue"));
+         this.add(new MyWorkAreaItems("Overdue"));
 
-        
-        myLabel.setPreferredSize(new Dimension(150,150));
-        myLabel.setBackground(Color.lightGray);
-        
-        
-        myLabel.add(new JButton("Delete"));
-        myLabel.add(new JButton("Subtract"));
-        this.add(myLabel);
-        this.add(addButton);
  }
 
- void addButtonFunction(){
-    System.out.println("hello cornuto");
- }
+ 
 }

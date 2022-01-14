@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
+import WorkArea.SideBarMenuFunctions;
+
 
 public class HomePadding extends JPanel{
     HomeFeed homeFeed_Jlabel = new HomeFeed();
@@ -61,7 +63,7 @@ public class HomePadding extends JPanel{
 
          mainPanel_homePadding = new JPanel( new FlowLayout(FlowLayout.CENTER, 10, 10) );
          mainPanel_homePadding.setBackground(Color.GRAY);
-
+         
             
         // Panel 1
 
