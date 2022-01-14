@@ -32,8 +32,24 @@ public class CreateFile {
             myWriter.write("Type,");
             myWriter.write("Name,");
             myWriter.write("Options,");
+            myWriter.write("Group,");
+            myWriter.write("Status,");
+            myWriter.write("Date,");
+            myWriter.write("Text,");
+            myWriter.write("Numbers,");
+            myWriter.write("Checkbox,");
+            myWriter.write("Description,");
             myWriter.write("\n"+Type+",");
             myWriter.write(filename+",");
+            myWriter.write("{},");
+            myWriter.write("{},");
+            myWriter.write("{},");
+            myWriter.write("false,"); // date 
+            myWriter.write("false,"); // text
+            myWriter.write("false,"); //numbers
+            myWriter.write("false,"); //checkbox
+            myWriter.write("false,"); //file
+            myWriter.write("no Description,"); //Description
             myWriter.close();
             System.out.println("i successfully write");
 
