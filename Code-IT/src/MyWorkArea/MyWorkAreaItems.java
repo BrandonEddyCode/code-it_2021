@@ -18,10 +18,11 @@ public class MyWorkAreaItems extends JPanel {
     ImageIcon image = new ImageIcon("res/Expanding_Button.jpg");
 
     MyWorkAreaItems (String nameTab) {
+        this.setSize(new Dimension(800,50));
         JLabel a = new JLabel(nameTab);
         a.setIcon(image);
         a.setHorizontalTextPosition(JLabel.RIGHT); // set text RIGHT of imageIcon
-        a.setPreferredSize(new Dimension(100,100));
+        a.setPreferredSize(new Dimension(1200,20));
         a.setVisible(true);
         a.setOpaque(true);
         a.setBackground(Color.lightGray);
