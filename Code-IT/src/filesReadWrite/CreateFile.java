@@ -26,9 +26,9 @@ public class CreateFile {
         }
     }
 
-    public static void writeFile(String filename,String Type){
+    public static void writeFile(String filename,String Type,String Description){
         try {
-            FileWriter myWriter = new FileWriter("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" + filename + ".csv");
+            FileWriter myWriter = new FileWriter("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" + filename + ".csv",false);
             myWriter.write("Type,");
             myWriter.write("Name,");
             myWriter.write("Options,");
@@ -38,18 +38,19 @@ public class CreateFile {
             myWriter.write("Text,");
             myWriter.write("Numbers,");
             myWriter.write("Checkbox,");
+            myWriter.write("File,");
             myWriter.write("Description,");
-            myWriter.write("\n"+Type+",");
-            myWriter.write(filename+",");
-            myWriter.write("{},");
-            myWriter.write("{},");
-            myWriter.write("{},");
+            myWriter.write("\n"+Type+","); // type
+            myWriter.write(filename+","); //filename
+            myWriter.write("{},"); //options
+            myWriter.write("{},"); //group
+            myWriter.write("{},"); //status 
             myWriter.write("false,"); // date 
             myWriter.write("false,"); // text
             myWriter.write("false,"); //numbers
             myWriter.write("false,"); //checkbox
             myWriter.write("false,"); //file
-            myWriter.write("no Description,"); //Description
+            myWriter.write(Description + ","); //Description
             myWriter.close();
             System.out.println("i successfully write");
 

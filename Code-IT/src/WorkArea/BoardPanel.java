@@ -1,6 +1,8 @@
 package WorkArea;
 
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -8,13 +10,23 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
+import filesReadWrite.CreateFile;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 
-class BoardPanel extends JPanel {
+
+class BoardPanel extends JPanel{
+
+
+
+
+    
+
     JPanel topSideBoardPanel;
     JPanel topSettingsBoardPanel;
     JPanel centreBoardPanel;
@@ -29,6 +41,7 @@ class BoardPanel extends JPanel {
     static JLabel boardNameText_JLabel = new JLabel();
     JButton infoBoardButton = new JButton();
     //on bottom
+    static String descriptionText;
     static JTextField boardDescriptionText = new JTextField(20);
     JLabel emptySpace = new JLabel();
 
@@ -39,6 +52,16 @@ class BoardPanel extends JPanel {
 
     //Todo Panels
 
+    //action
+    Action action = new AbstractAction()
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO Auto-generated method stub
+            CreateFile.writeFile(boardNameText_JLabel.getName(),"Board",boardDescriptionText.getText());
+            
+        }
+    };
 
         BoardPanel(){
             
@@ -104,7 +127,7 @@ class BoardPanel extends JPanel {
 
             boardDescriptionText.setPreferredSize(new Dimension(50,25));
             boardDescriptionText.setBackground(Color.LIGHT_GRAY);
-            boardDescriptionText.setText("hello");
+            boardDescriptionText.addActionListener(action);
             
             emptySpace.setPreferredSize(new Dimension(50,25));
             
@@ -115,6 +138,7 @@ class BoardPanel extends JPanel {
 
         }
         static void setBoardName(String Name){
+            boardNameText_JLabel.setName(Name);
             boardNameText_JLabel.setText(Name);
         }
         static void setBoardDescription(String Description){
