@@ -26,7 +26,7 @@ public class CreateFile {
         }
     }
 
-    public static void writeFile(String filename,String Type,String Description){
+    public static void writeFile(String filename,String group,String Type,String Description,String Options){
         try {
             FileWriter myWriter = new FileWriter("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" + filename + ".csv",false);
             myWriter.write("Type,");
@@ -40,10 +40,11 @@ public class CreateFile {
             myWriter.write("Checkbox,");
             myWriter.write("File,");
             myWriter.write("Description,");
+            myWriter.write("TimeLine,");
             myWriter.write("\n"+Type+","); // type
             myWriter.write(filename+","); //filename
-            myWriter.write("{},"); //options
-            myWriter.write("{},"); //group
+            myWriter.write(Options + ","); //options
+            myWriter.write(group + ","); //group
             myWriter.write("{},"); //status 
             myWriter.write("false,"); // date 
             myWriter.write("false,"); // text
@@ -51,6 +52,7 @@ public class CreateFile {
             myWriter.write("false,"); //checkbox
             myWriter.write("false,"); //file
             myWriter.write(Description + ","); //Description
+            myWriter.write("false,"); //timeline
             myWriter.close();
             System.out.println("i successfully write");
 

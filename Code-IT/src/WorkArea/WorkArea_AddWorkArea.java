@@ -155,7 +155,7 @@ final class WorkArea_AddWorkArea extends JFrame{
         if (!(ReadFile.getAllFolders().isEmpty())) {
         //this will create boards.
         CreateFile.createFile(text);
-        CreateFile.writeFile(text,"Board","no Description");
+        CreateFile.writeFile(text,"1:default","Board","no Description","1:DefaultTab");
         
         SideBarMenuFunctions.addItemsToSecondSide(text);
         SideBarMenuFunctions.repaintThis();

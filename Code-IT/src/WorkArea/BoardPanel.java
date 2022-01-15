@@ -4,13 +4,16 @@ package WorkArea;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
+
 import filesReadWrite.CreateFile;
+import filesReadWrite.ReadFile;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,10 +21,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.Image;
 
 
 class BoardPanel extends JPanel{
-
+    BoardMainTab mainCard = new BoardMainTab();
 
 
 
@@ -39,11 +43,13 @@ class BoardPanel extends JPanel{
     
 
     static JLabel boardNameText_JLabel = new JLabel();
+    static JLabel boardPreferiteButton_Jlabel = new JLabel();
     JButton infoBoardButton = new JButton();
     //on bottom
     static String descriptionText;
     static JTextField boardDescriptionText = new JTextField(20);
     JLabel emptySpace = new JLabel();
+    ImageIcon preferiteStartIcon = new ImageIcon(new ImageIcon("res/StarBright.png").getImage().getScaledInstance(20,  20, Image.SCALE_DEFAULT));
 
 
     //centreBoard
@@ -58,7 +64,10 @@ class BoardPanel extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
-            CreateFile.writeFile(boardNameText_JLabel.getName(),"Board",boardDescriptionText.getText());
+            CreateFile.writeFile(boardNameText_JLabel.getName(),
+            ReadFile.readFile(BoardMainTab.currentSelected,"group"),
+            "Board",boardDescriptionText.getText(),
+            ReadFile.readFile(BoardMainTab.currentSelected, "options"));
             
         }
     };
@@ -76,13 +85,16 @@ class BoardPanel extends JPanel{
             topSettingsBoardPanel.setBackground(Color.blue);
             centreBoardPanel.setBackground(Color.GREEN);
 
+            
+
             //settings
             this.setLayout(new BorderLayout());
 
-            topSideBoardPanel.setPreferredSize(new Dimension(0,75));
+            topSideBoardPanel.setPreferredSize(new Dimension(0,85));
             topSideBoardPanel.add(topSideBoardPanelTop,BorderLayout.NORTH);
             topSideBoardPanel.add(topSideBoardPanelBottom,BorderLayout.SOUTH);
 
+            
 
             topSideBoardPanelSettings();
             centreBoardPanelSettings();
@@ -106,24 +118,43 @@ class BoardPanel extends JPanel{
 
 
             topSideBoardPanelBottom.setPreferredSize(new Dimension(20,20));
-            topSideBoardPanelTop.setPreferredSize(new Dimension(50,55));
-
+            topSideBoardPanelTop.setPreferredSize(new Dimension(50,65));
+            topSideBoardPanelTop.setAlignmentX(JLabel.LEFT_ALIGNMENT);
+            topSideBoardPanelTop.setAlignmentY(JLabel.TOP_ALIGNMENT);
             
             topSideBoardPanelTop.add(boardNameText_JLabel);
+            topSideBoardPanelTop.add(boardPreferiteButton_Jlabel);
+
             topSideBoardPanelBottom.add(boardDescriptionText);
             topSideBoardPanelBottom.add(emptySpace);
 
          
             boardNameText_JLabel.setVerticalTextPosition(JLabel.BOTTOM);
+            boardNameText_JLabel.setOpaque(true);
+            boardNameText_JLabel.setBackground(Color.PINK);
+            boardNameText_JLabel.setBounds(0,0,50,55);
             
-            
-            boardNameText_JLabel.setPreferredSize(new Dimension(250,100));
+            //boardNameText_JLabel.setPreferredSize(new Dimension(250,100));
             boardNameText_JLabel.setFont(new Font("Commons",Font.BOLD,35));
-            boardNameText_JLabel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
+           // boardNameText_JLabel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
             boardNameText_JLabel.setVerticalAlignment(JLabel.NORTH);
-            infoBoardButton.setPreferredSize(new Dimension(2,2));
-            infoBoardButton.setAlignmentX(JLabel.RIGHT);
-            topSideBoardPanelTop.add(infoBoardButton);
+
+            boardPreferiteButton_Jlabel.setBounds(0,0,50,55);
+            //boardPreferiteButton_Jlabel.setSize(new Dimension(50,55));
+            boardPreferiteButton_Jlabel.setText("     ");
+            boardPreferiteButton_Jlabel.setHorizontalTextPosition(JLabel.CENTER);
+            boardPreferiteButton_Jlabel.setFont(new Font("Commons",Font.BOLD,35));
+            
+            boardPreferiteButton_Jlabel.setBackground(Color.black); // temp 
+            boardPreferiteButton_Jlabel.setOpaque(true); // temp
+            boardPreferiteButton_Jlabel.setIcon(preferiteStartIcon);
+            infoBoardButton.setBounds(0,0,25,27);
+            infoBoardButton.setOpaque(true);
+            infoBoardButton.setContentAreaFilled(false);
+            boardPreferiteButton_Jlabel.add(infoBoardButton);
+            
+            
+            
 
             boardDescriptionText.setPreferredSize(new Dimension(50,25));
             boardDescriptionText.setBackground(Color.LIGHT_GRAY);
@@ -148,9 +179,9 @@ class BoardPanel extends JPanel{
 
         //a new item every tab need to separate other class for each
         void centreBoardPanelSettings(){
-            JPanel one = new JPanel(); // temporary
+            
             JPanel two = new JPanel();// temporary
-            tabs.addTab("Main Table", one);
+            tabs.addTab("Main Table", mainCard);
             tabs.addTab("Graphic", two);
             centreBoardPanel.add(tabs);
         }

@@ -64,6 +64,11 @@ public class Items extends JLabel {
         BoardPanel.setBoardName(this.getName());
         setDescription("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" +this.getName()+ ".csv");
         BoardPanel.setBoardDescription(this.description);
+        BoardMainTab.setCurrentSelected("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" +this.getName()+ ".csv");
+      
+        BoardMainTab.setGroups();
+        GroupTabs.takeTabsFromFile();
+        
     }
     
     

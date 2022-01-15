@@ -160,6 +160,19 @@ public class ReadFile {
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
+                case "file":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
                 case "description":
                 typeScanner.next();
                 typeScanner.next();
@@ -170,8 +183,24 @@ public class ReadFile {
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
-                fileType = typeScanner.next();
                 
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "timeline":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;

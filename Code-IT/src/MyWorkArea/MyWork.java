@@ -2,7 +2,6 @@ package MyWorkArea;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Color;
