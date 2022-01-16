@@ -97,6 +97,129 @@ public class ReadFile {
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
+                case "tabs":
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "group":
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "task":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "Status":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "Date":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "Text":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "numbers":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "checkbox":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "file":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "timeline":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "description":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
                 
             }
 

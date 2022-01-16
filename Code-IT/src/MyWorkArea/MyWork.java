@@ -4,8 +4,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.Font;
+=======
+import java.awt.GridLayout;
+>>>>>>> 4d45e8e583cc0d76c1957673665476182a9cc950
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.GridLayout;
