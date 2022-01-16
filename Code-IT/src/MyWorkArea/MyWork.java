@@ -4,30 +4,22 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-<<<<<<< HEAD
-import java.awt.BorderLayout;
-import java.awt.Font;
-=======
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import java.awt.GridLayout;
->>>>>>> 4d45e8e583cc0d76c1957673665476182a9cc950
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.GridLayout;
-
-
-/*to do make the boxes around the frame
-look up how to make small openable click boxes
-make 4 boarders.
-*/
+import java.awt.BorderLayout;
 
 public class MyWork extends JPanel{
-JPanel myLabel;
-JButton addButton;
 
 
-//another class
-MyWorkAreaItems myWorkAreaItems;
+MyWorkAreaItems myWorkAreaItems = new MyWorkAreaItems("nameTab");
 
+JPanel mainPanel;
+
+//JScrollPane scrollWork = new JScrollPane(myWorkAreaItems,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 
 // Main frame that houses everything for my work tab
@@ -37,10 +29,12 @@ MyWorkAreaItems myWorkAreaItems;
         // settings of mywork FRAME
         this.setBackground(Color.black);
         this.setLayout(new BorderLayout());
-        this.setVisible(false);
         this.setSize(500,500);
+        this.setSize(2000,2000);
         this.setOpaque(true);
-    
+        this.setVisible(true);
+        //add(scrollWork);
+       
 
          JPanel topPanel = new JPanel();                    //TOP RED PANEL
          JPanel rearPanel = new JPanel(new BorderLayout());
@@ -56,30 +50,25 @@ MyWorkAreaItems myWorkAreaItems;
          rearPanel.setPreferredSize(new Dimension(100,100));
          searchPanel.setPreferredSize(new Dimension(2000, 50));
 
+       
+        this.add(topPanel, BorderLayout.NORTH);
+        JTextArea title = new JTextArea("My Work");
+        topPanel.add(title);
+        this.add(rearPanel, BorderLayout.CENTER);
+        rearPanel.add(searchPanel,BorderLayout.CENTER);
 
-         this.add(topPanel, BorderLayout.NORTH);
-         this.add(rearPanel, BorderLayout.CENTER);
-         rearPanel.add(searchPanel,BorderLayout.NORTH); 
 
          // My Work center tabs
 
          rearPanel.setLayout(new BoxLayout(rearPanel, BoxLayout.Y_AXIS));
          rearPanel.add(new MyWorkAreaItems("Overdue /"));
-         rearPanel.add(new MyWorkAreaItems("Today /"));
+         rearPanel.add(new MyWorkAreaItems("Today / "));
          rearPanel.add(new MyWorkAreaItems("This week /"));
          rearPanel.add(new MyWorkAreaItems("Next week /"));
          rearPanel.add(new MyWorkAreaItems("Later /"));
          rearPanel.add(new MyWorkAreaItems("Without a date /"));
+        // rearPanel.add(scrollWork);
 
-
-        
-
-         
-    
-         //topsidecentrepanel
-            //this.add(new MyWorkAreaItems("Overdue"));
-
-        //centrerpanel
 
  }
 
