@@ -26,33 +26,39 @@ public class CreateFile {
         }
     }
 
-    public static void writeFile(String filename,String group,String Type,String Description,String Options){
+    public static void writeFile(String filename,String group,String Type,String Description,String Tabs,String Task){
         try {
             FileWriter myWriter = new FileWriter("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" + filename + ".csv",false);
             myWriter.write("Type,");
             myWriter.write("Name,");
-            myWriter.write("Options,");
+            myWriter.write("tabs,");
             myWriter.write("Group,");
+            myWriter.write("task,");
             myWriter.write("Status,");
             myWriter.write("Date,");
             myWriter.write("Text,");
             myWriter.write("Numbers,");
             myWriter.write("Checkbox,");
             myWriter.write("File,");
-            myWriter.write("Description,");
             myWriter.write("TimeLine,");
+            myWriter.write("Description,");
+            myWriter.write("favourite");
+           
             myWriter.write("\n"+Type+","); // type
             myWriter.write(filename+","); //filename
-            myWriter.write(Options + ","); //options
+            myWriter.write(Tabs + ","); //options
             myWriter.write(group + ","); //group
+            myWriter.write(Task +",");
             myWriter.write("{},"); //status 
             myWriter.write("false,"); // date 
             myWriter.write("false,"); // text
             myWriter.write("false,"); //numbers
             myWriter.write("false,"); //checkbox
             myWriter.write("false,"); //file
-            myWriter.write(Description + ","); //Description
             myWriter.write("false,"); //timeline
+            myWriter.write(Description + ","); //Description
+            myWriter.write("false,");
+            
             myWriter.close();
             System.out.println("i successfully write");
 

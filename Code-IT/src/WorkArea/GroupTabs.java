@@ -2,19 +2,18 @@ package WorkArea;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.BorderLayout;
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
+
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.GroupLayout.Group;
+
 
 import filesReadWrite.ReadFile;
 
 import java.awt.GridLayout;
 import java.util.HashMap;
-import java.util.LinkedList;
+
 
 class GroupTabs extends JPanel{
     
@@ -44,7 +43,12 @@ class GroupTabs extends JPanel{
     static String currentGroup;
     static String values;
     static String parts[];
+
+    private static int counter;
     
+
+    
+
 
     GroupTabs(String GroupName, String CurrentgroupName){
         this.setLayout(new BorderLayout());
@@ -123,7 +127,7 @@ class GroupTabs extends JPanel{
             
             
 
-            values = ReadFile.readFile(currentGroupNameFile, "options");
+            values = ReadFile.readFile(currentGroupNameFile, "tabs");
             
             parts = values.split(" ");
             
@@ -145,13 +149,16 @@ class GroupTabs extends JPanel{
             
             
         }
+        counter = 0;
         for (String i : tabsElements.values()) {
             if (groupName.getName() == currentGroup){
+                counter += 1;
             height += 19;
             tab.setPreferredSize(new Dimension(50,height));
-            elements = new GroupElements();
+            elements = new GroupElements(String.format("%d", counter),"");
             bottom.add(elements);
             }
         }
     
-}}
+}
+}

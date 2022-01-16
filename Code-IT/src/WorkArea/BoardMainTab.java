@@ -1,7 +1,7 @@
 package WorkArea;
 
 import java.awt.Color;
-import java.awt.Dimension;
+
 import java.util.HashMap;
 
 
@@ -88,5 +88,6 @@ public class BoardMainTab extends JPanel {
     
     static void setCurrentSelected(String selected){
         currentSelected = selected;
+        
     }
 }

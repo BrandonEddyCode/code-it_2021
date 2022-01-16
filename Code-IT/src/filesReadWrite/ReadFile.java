@@ -97,7 +97,7 @@ public class ReadFile {
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
-                case "options":
+                case "tabs":
                 typeScanner.next();
                 fileType = typeScanner.next();
                 dataScanner.close();
@@ -110,7 +110,16 @@ public class ReadFile {
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
+                case "task":
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
                 case "Status":
+                typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
@@ -123,11 +132,13 @@ public class ReadFile {
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
+                typeScanner.next();
                 fileType = typeScanner.next();
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
                 case "Text":
+                typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
@@ -144,11 +155,13 @@ public class ReadFile {
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
+                typeScanner.next();
                 fileType = typeScanner.next();
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
                 case "checkbox":
+                typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
@@ -169,21 +182,7 @@ public class ReadFile {
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
-                fileType = typeScanner.next();
-                dataScanner.close();
-                typeScanner.close();
-                return fileType;
-                case "description":
                 typeScanner.next();
-                typeScanner.next();
-                typeScanner.next();
-                typeScanner.next();
-                typeScanner.next();
-                typeScanner.next();
-                typeScanner.next();
-                typeScanner.next();
-                typeScanner.next();
-                
                 fileType = typeScanner.next();
                 dataScanner.close();
                 typeScanner.close();
@@ -199,7 +198,24 @@ public class ReadFile {
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
+                
+                fileType = typeScanner.next();
+                dataScanner.close();
+                typeScanner.close();
+                return fileType;
+                case "description":
                 typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                typeScanner.next();
+                
                 fileType = typeScanner.next();
                 dataScanner.close();
                 typeScanner.close();

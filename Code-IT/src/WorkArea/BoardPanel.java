@@ -41,16 +41,16 @@ class BoardPanel extends JPanel{
     JPanel topSideBoardPanelBottom = new JPanel();
     //on top
     
+    ImageIcon preferiteStartIcon = new ImageIcon(new ImageIcon("res/Star.png").getImage().getScaledInstance(20,  20, Image.SCALE_DEFAULT));
 
     static JLabel boardNameText_JLabel = new JLabel();
     static JLabel boardPreferiteButton_Jlabel = new JLabel();
-    JButton infoBoardButton = new JButton();
+    JButton favouriteTabButton = new JButton(preferiteStartIcon);
     //on bottom
     static String descriptionText;
     static JTextField boardDescriptionText = new JTextField(20);
     JLabel emptySpace = new JLabel();
-    ImageIcon preferiteStartIcon = new ImageIcon(new ImageIcon("res/StarBright.png").getImage().getScaledInstance(20,  20, Image.SCALE_DEFAULT));
-
+   
 
     //centreBoard
     JPanel centreBoardPanlTop = new JPanel();
@@ -63,11 +63,12 @@ class BoardPanel extends JPanel{
     {
         @Override
         public void actionPerformed(ActionEvent e) {
-            // TODO Auto-generated method stub
+            
             CreateFile.writeFile(boardNameText_JLabel.getName(),
             ReadFile.readFile(BoardMainTab.currentSelected,"group"),
             "Board",boardDescriptionText.getText(),
-            ReadFile.readFile(BoardMainTab.currentSelected, "options"));
+            ReadFile.readFile(BoardMainTab.currentSelected, "tabs"),
+            ReadFile.readFile(BoardMainTab.currentSelected, "task"));
             
         }
     };
@@ -131,7 +132,7 @@ class BoardPanel extends JPanel{
          
             boardNameText_JLabel.setVerticalTextPosition(JLabel.BOTTOM);
             boardNameText_JLabel.setOpaque(true);
-            boardNameText_JLabel.setBackground(Color.PINK);
+            
             boardNameText_JLabel.setBounds(0,0,50,55);
             
             //boardNameText_JLabel.setPreferredSize(new Dimension(250,100));
@@ -145,13 +146,13 @@ class BoardPanel extends JPanel{
             boardPreferiteButton_Jlabel.setHorizontalTextPosition(JLabel.CENTER);
             boardPreferiteButton_Jlabel.setFont(new Font("Commons",Font.BOLD,35));
             
-            boardPreferiteButton_Jlabel.setBackground(Color.black); // temp 
-            boardPreferiteButton_Jlabel.setOpaque(true); // temp
-            boardPreferiteButton_Jlabel.setIcon(preferiteStartIcon);
-            infoBoardButton.setBounds(0,0,25,27);
-            infoBoardButton.setOpaque(true);
-            infoBoardButton.setContentAreaFilled(false);
-            boardPreferiteButton_Jlabel.add(infoBoardButton);
+            
+            favouriteTabButton.setIcon(preferiteStartIcon);
+            favouriteTabButton.setBounds(10,10,25,27);
+            favouriteTabButton.setOpaque(true);
+            favouriteTabButton.setContentAreaFilled(false);
+            favouriteTabButton.addActionListener(e -> setFavouriteTab());
+            boardPreferiteButton_Jlabel.add(favouriteTabButton);
             
             
             
@@ -184,5 +185,19 @@ class BoardPanel extends JPanel{
             tabs.addTab("Main Table", mainCard);
             tabs.addTab("Graphic", two);
             centreBoardPanel.add(tabs);
+        }
+        void setFavouriteTab(){
+
+            //TODO i have to make preferite
+            /*
+            CreateFile.writeFile(GroupElements.currentName,
+             ReadFile.readFile(GroupElements.currentSelected, "group"),
+              ReadFile.readFile(GroupElements.currentSelected, "type"),
+               ReadFile.readFile(GroupElements.currentSelected, "Description"),
+               ReadFile.readFile(GroupElements.currentSelected, "tabs"),
+               ReadFile.readFile(GroupElements.currentSelected, "task"));
+
+            ;
+            */
         }
 }
