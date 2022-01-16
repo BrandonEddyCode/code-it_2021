@@ -31,10 +31,10 @@ public class MyWorkAreaItems extends JPanel {
         button.addActionListener(e -> MyWorkAreaAction()); // when button is clicked it expands
         a.add(button);
         a.add(font);
-        a.setPreferredSize(new Dimension(1200,50));
+        a.setPreferredSize(new Dimension(2000,50));
         a.setVisible(true);
         a.setOpaque(true);
-        a.setBackground(Color.lightGray);
+        a.setBackground(Color.white);
         font.setFont(new Font("Helvetica",Font.BOLD, 15));
         a.setFocusable(false); 
         add(a);
@@ -43,7 +43,7 @@ public class MyWorkAreaItems extends JPanel {
     void MyWorkAreaAction () {
         if (isExpanded) {
             isExpanded = false;
-            a.setPreferredSize(new Dimension(1200,500));
+            a.setPreferredSize(new Dimension(1200,100));
             a.revalidate();
             a.repaint();
         } 

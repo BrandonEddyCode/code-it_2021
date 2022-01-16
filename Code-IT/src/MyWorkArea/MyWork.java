@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
+import java.awt.Font;
 
 public class MyWork extends JPanel{
 
@@ -18,8 +19,9 @@ public class MyWork extends JPanel{
 MyWorkAreaItems myWorkAreaItems = new MyWorkAreaItems("nameTab");
 
 JPanel mainPanel;
+JPanel myWorkPadding;
 
-//JScrollPane scrollWork = new JScrollPane(myWorkAreaItems,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
 
 
 // Main frame that houses everything for my work tab
@@ -33,12 +35,12 @@ JPanel mainPanel;
         this.setSize(2000,2000);
         this.setOpaque(true);
         this.setVisible(true);
-        //add(scrollWork);
+        
        
 
-         JPanel topPanel = new JPanel();                    //TOP RED PANEL
-         JPanel rearPanel = new JPanel(new BorderLayout());
-         JPanel searchPanel = new JPanel();                 // SEARCH BAR PANEL
+         JPanel topPanel = new JPanel(new BorderLayout());    // TOP RED PANEL
+         JPanel rearPanel = new JPanel(new BorderLayout());   // WHERE THE MIDDLE TABS (OVERDUE.. ETC) ARE ATTACHED TO 
+         JPanel searchPanel = new JPanel();                   // SEARCH BAR PANEL
          
 
          topPanel.setBackground(Color.RED);        // TOP PANEL
@@ -48,12 +50,14 @@ JPanel mainPanel;
          
          topPanel.setPreferredSize(new Dimension(100,100));
          rearPanel.setPreferredSize(new Dimension(100,100));
-         searchPanel.setPreferredSize(new Dimension(2000, 50));
+         searchPanel.setPreferredSize(new Dimension(100, 100));
 
        
         this.add(topPanel, BorderLayout.NORTH);
-        JTextArea title = new JTextArea("My Work");
-        topPanel.add(title);
+        JTextArea title = new JTextArea("My Work");            // creates text box
+        title.setFont(new Font("Helvetica",Font.BOLD, 40));    // sets the font of the title
+        title.setOpaque(false);                                // makes the text have no background
+        topPanel.add(title, BorderLayout.WEST);                // adds title to left side of top panel
         this.add(rearPanel, BorderLayout.CENTER);
         rearPanel.add(searchPanel,BorderLayout.CENTER);
 
@@ -67,7 +71,6 @@ JPanel mainPanel;
          rearPanel.add(new MyWorkAreaItems("Next week /"));
          rearPanel.add(new MyWorkAreaItems("Later /"));
          rearPanel.add(new MyWorkAreaItems("Without a date /"));
-        // rearPanel.add(scrollWork);
 
 
  }

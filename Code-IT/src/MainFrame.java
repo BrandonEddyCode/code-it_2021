@@ -19,7 +19,7 @@ class MainFrame extends JFrame{
    // SideBarMenu leftSideBarMenu = new SideBarMenu(); //?? i dont remember
     HomePage homePage = new HomePage(); // this is the homepage
     WorkArea workArea = new WorkArea(); // this is the workArea Page
-    MyWork myWork = new MyWork();
+    MyWorkScroll myWorkScroll = new MyWorkScroll();
     
 
     Boolean useStartupVideo = false; // setting if want to use the initial video
@@ -85,14 +85,15 @@ class MainFrame extends JFrame{
         this.repaint(); // refresh the window
         this.add(mainFrame); // the actual main frame panel added
         mainFrame.setBackground(Color.BLACK); // make the mainframe black
-        
+        myWorkScroll.setPreferredSize(new Dimension(55,55));
         mainFrame.setLayout(new BorderLayout()); //use the borderlayout manager
         mainFrame.add(leftSideBar, BorderLayout.LINE_START); // left side bar added.
        // mainFrame.add(leftSideBarMenu, BorderLayout.CENTER);
         mainFrame.add(centre); // this is the centre of the screen / by default is BorderLayout.center
         centre.add(homePage); //homepage added 
         centre.add(workArea); // work area page added 
-        centre.add(myWork);
+        centre.add(myWorkScroll);
+        
         
     
         
@@ -106,7 +107,7 @@ class MainFrame extends JFrame{
     void sideBarButtonsListeners(){
         leftSideBar.button.addActionListener(e -> switchhomes(homePage));
         leftSideBar.button2.addActionListener(e -> switchhomes(workArea));
-        leftSideBar.button3.addActionListener(e -> switchhomes(myWork));
+        leftSideBar.button3.addActionListener(e -> switchhomes(myWorkScroll));
         leftSideBar.button4.addActionListener(e -> switchhomes(null));
         leftSideBar.button5.addActionListener(e -> switchhomes(null));
     }
@@ -116,7 +117,7 @@ class MainFrame extends JFrame{
     void switchhomes(JPanel Panel){
         homePage.setVisible(false);
         workArea.setVisible(false);
-        myWork.setVisible(false);
+        myWorkScroll.setVisible(false);
         Panel.setVisible(true);
     }
    
