@@ -22,11 +22,11 @@ public class MyWorkAreaItems extends JPanel {
         JLabel a = new JLabel(nameTab);
         a.setIcon(image);
         a.setHorizontalTextPosition(JLabel.RIGHT); // set text RIGHT of imageIcon
-        a.setPreferredSize(new Dimension(1200,20));
+        a.setPreferredSize(new Dimension(1200,50));
         a.setVisible(true);
         a.setOpaque(true);
         a.setBackground(Color.lightGray);
-        a.setFont(new Font("Helvetica",Font.PLAIN, 15));
+        a.setFont(new Font("Helvetica",Font.BOLD, 15));
         a.setFocusable(false); 
         this.add(a);
     }

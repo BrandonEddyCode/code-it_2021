@@ -2,9 +2,10 @@ package MyWorkArea;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-//import java.awt.GridLayout;
+import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -25,9 +26,11 @@ MyWorkAreaItems myWorkAreaItems;
 
 
 
+// Main frame that houses everything for my work tab
 
- public MyWork(){
-     // settings of mywork
+ public MyWork(){ 
+
+        // settings of mywork FRAME
         this.setBackground(Color.black);
         this.setLayout(new BorderLayout());
         this.setVisible(false);
@@ -35,37 +38,35 @@ MyWorkAreaItems myWorkAreaItems;
         this.setOpaque(true);
     
 
-         //topsidepanel
-         JPanel panel1 = new JPanel();
-         JPanel panel2 = new JPanel(new BorderLayout());
-         JPanel panel3 = new JPanel();
-         JPanel panel4 = new JPanel();
+         JPanel topPanel = new JPanel();                    //TOP RED PANEL
+         JPanel rearPanel = new JPanel(new BorderLayout());
+         JPanel searchPanel = new JPanel();                 // SEARCH BAR PANEL
          
 
-         panel1.setBackground(Color.RED); // TOP PANEL
-         panel2.setBackground(Color.MAGENTA); // CENTER PANEL
-         panel3.setBackground(Color.GREEN);// TOP CENTER PANEL
-         panel4.setBackground(Color.DARK_GRAY);
+         topPanel.setBackground(Color.RED);        // TOP PANEL
+         rearPanel.setBackground(Color.MAGENTA);   // REAR CENTER PANEL
+         searchPanel.setBackground(Color.GREEN);   // TOP SEARCH PANEL
          
+         
+         topPanel.setPreferredSize(new Dimension(100,100));
+         rearPanel.setPreferredSize(new Dimension(100,100));
+         searchPanel.setPreferredSize(new Dimension(2000, 50));
 
 
-        // panel2.setLayout(new BorderLayout(50,50));
-    
-         
-         panel1.setPreferredSize(new Dimension(100,100));
-         panel2.setPreferredSize(new Dimension(100,100));
-         panel3.setPreferredSize(new Dimension(2000, 100));
+         this.add(topPanel, BorderLayout.NORTH);
+         this.add(rearPanel, BorderLayout.CENTER);
+         rearPanel.add(searchPanel,BorderLayout.NORTH); 
 
-         
-         this.add(panel1, BorderLayout.NORTH);
-         this.add(panel2, BorderLayout.CENTER);
-         panel2.add(panel3,BorderLayout.NORTH); 
-         panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
-         panel2.add(panel4);
-         panel4.add(new MyWorkAreaItems("nameTab"));
-         panel4.add(new MyWorkAreaItems("nameTa3b"));
-         panel4.add(new MyWorkAreaItems("nameTab4"));
-         panel4.add(new MyWorkAreaItems("nameTab7"));
+         // My Work center tabs
+
+         rearPanel.setLayout(new BoxLayout(rearPanel, BoxLayout.Y_AXIS));
+         rearPanel.add(new MyWorkAreaItems("Overdue /"));
+         rearPanel.add(new MyWorkAreaItems("Today /"));
+         rearPanel.add(new MyWorkAreaItems("This week /"));
+         rearPanel.add(new MyWorkAreaItems("Next week /"));
+         rearPanel.add(new MyWorkAreaItems("Later /"));
+         rearPanel.add(new MyWorkAreaItems("Without a date /"));
+
 
         
 
