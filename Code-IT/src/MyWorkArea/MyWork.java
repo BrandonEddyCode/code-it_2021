@@ -28,6 +28,7 @@ JPanel myWorkPadding;
 
  public MyWork(){ 
 
+       
         // settings of mywork FRAME
         this.setBackground(Color.black);
         this.setLayout(new BorderLayout());
@@ -41,6 +42,8 @@ JPanel myWorkPadding;
          JPanel topPanel = new JPanel(new BorderLayout());    // TOP RED PANEL
          JPanel rearPanel = new JPanel(new BorderLayout());   // WHERE THE MIDDLE TABS (OVERDUE.. ETC) ARE ATTACHED TO 
          JPanel searchPanel = new JPanel();                   // SEARCH BAR PANEL
+         
+         JScrollPane myWorkScroll = new JScrollPane(rearPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
          
 
          topPanel.setBackground(Color.RED);        // TOP PANEL
@@ -58,13 +61,16 @@ JPanel myWorkPadding;
         title.setFont(new Font("Helvetica",Font.BOLD, 40));    // sets the font of the title
         title.setOpaque(false);                                // makes the text have no background
         topPanel.add(title, BorderLayout.WEST);                // adds title to left side of top panel
-        this.add(rearPanel, BorderLayout.CENTER);
-        rearPanel.add(searchPanel,BorderLayout.CENTER);
+        myWorkScroll.setPreferredSize(new Dimension(100,1000));
+        this.add(myWorkScroll, BorderLayout.CENTER);
+        
+        
 
 
          // My Work center tabs
 
          rearPanel.setLayout(new BoxLayout(rearPanel, BoxLayout.Y_AXIS));
+         rearPanel.add(searchPanel);
          rearPanel.add(new MyWorkAreaItems("Overdue /"));
          rearPanel.add(new MyWorkAreaItems("Today / "));
          rearPanel.add(new MyWorkAreaItems("This week /"));
