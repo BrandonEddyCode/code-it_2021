@@ -311,10 +311,14 @@ public class GroupElements extends JPanel {
              checkBox.setSelected(false);
          }
          //numberfield
-         numbersField.setText(numbersFielMap.get(tabName));
+        String numbersFieldText = numbersFielMap.get(tabName);
+        String finalnumbersText = numbersFieldText.replace("_", " ");
+         numbersField.setText(finalnumbersText);
 
          //textField
-         textField.setText(textFieldMap.get(tabName));
+         String textFieldText = textFieldMap.get(tabName);
+        String finaltextText = textFieldText.replace("_", " ");
+         textField.setText(finaltextText);
         
         
         

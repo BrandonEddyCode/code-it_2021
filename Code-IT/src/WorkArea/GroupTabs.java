@@ -22,10 +22,10 @@ class GroupTabs extends JPanel{
 
     static JPanel tab;
 
-    JPanel centre = new JPanel(new BorderLayout());
+    static JPanel centre = new JPanel(new BorderLayout());
     JPanel top = new JPanel(new GridLayout(1,7));
     static JPanel bottom = new JPanel(new GridLayout(100,8));
-    JScrollPane bottomScrollPane = new JScrollPane(bottom,JScrollPane.VERTICAL_SCROLLBAR_NEVER,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    static JScrollPane bottomScrollPane = new JScrollPane(bottom,JScrollPane.VERTICAL_SCROLLBAR_NEVER,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     static GroupElements elements;
     static int height = 55;
     //labels
@@ -189,7 +189,10 @@ static void addTabAction(){
              makeTrim(GroupElements.numbersFielMap),
              makeTrim(GroupElements.textFieldMap));
 
+  takeTabsFromFile();
   
+  centre.revalidate();
+  centre.repaint();
 }
 
 static java.lang.String makeTrim(HashMap<String,String> mapToTrim){

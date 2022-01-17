@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.GridLayout;
 
 import java.awt.Frame;
 
@@ -24,8 +25,8 @@ final class WorkArea_AddWorkArea extends JFrame{
     final JPanel workArea_MainPanel_Centre = new JPanel(new CardLayout());
     final JButton newBoard_JButton = new JButton();
     final JButton newWorkArea_JButton = new JButton();
-    final JPanel makeNewBoard_JPanel = new JPanel();
-    final JPanel makeNewWorkArea_JPanel = new JPanel();
+    final JPanel makeNewBoard_JPanel = new JPanel(new GridLayout(7,0));
+    final JPanel makeNewWorkArea_JPanel = new JPanel(new GridLayout(7,0));
 
     WorkArea_AddWorkArea(){
         setBounds(400,200,467,315);
@@ -60,7 +61,7 @@ final class WorkArea_AddWorkArea extends JFrame{
         
         //colors
         workArea_MainPanel.setBackground(Color.BLACK);
-        makeNewBoard_JPanel.setBackground(Color.blue);
+        makeNewBoard_JPanel.setBackground(Color.BLACK);
 
         makeNewBoard_JPanel.setVisible(false);
         makeNewWorkArea_JPanel.setVisible(false);
@@ -89,6 +90,7 @@ final class WorkArea_AddWorkArea extends JFrame{
     
     void makeNewBoardPanel(){
         //for  makeNewBoard_Jpanel
+        
         final JLabel textMakeBoard = new JLabel();
         final JLabel textNameBoard = new JLabel();
         final JTextField nameBoard = new JTextField();
@@ -127,7 +129,7 @@ final class WorkArea_AddWorkArea extends JFrame{
         nameWorkArea.setText("new WorkArea");
         textNameWorkArea.setText("WorkArea Name");
         makeWorkAreaButton_jButton.setText("Create WorkArea");
-        cancelButton.setText("Cancelaa");
+        cancelButton.setText("Cancel");
 
         cancelButton.addActionListener(e -> CancelButton());
         makeWorkAreaButton_jButton.addActionListener(e -> createWorkArea(nameWorkArea.getText()));
@@ -173,6 +175,7 @@ final class WorkArea_AddWorkArea extends JFrame{
     void createWorkArea(String WorkArea){
         CreateFile.createFolder(WorkArea); 
         SideBarMenuFunctions.comboBox_JComboBox.addItem(WorkArea);
+        this.dispose();
        
     }
     void setVisibleNewWorkAreaPanel(){
