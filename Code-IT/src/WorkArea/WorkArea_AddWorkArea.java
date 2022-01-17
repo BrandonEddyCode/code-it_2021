@@ -75,7 +75,7 @@ final class WorkArea_AddWorkArea extends JFrame{
         WindowListener listener = new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
             Frame frame = (Frame) evt.getSource();
-            System.out.println("Closing = "+frame.getTitle());
+           // System.out.println("Closing = "+frame.getTitle());
             newBoard_JButton.setVisible(true);
             newWorkArea_JButton.setVisible(true);
             workArea_MainPanel.setVisible(true);
@@ -155,7 +155,7 @@ final class WorkArea_AddWorkArea extends JFrame{
         if (!(ReadFile.getAllFolders().isEmpty())) {
         //this will create boards.
         CreateFile.createFile(text);
-        CreateFile.writeFile(text,"1:Task","Board","no Description","1:DefaultTab","1:_");
+        CreateFile.writeFile(text,"1:Task","Board","no Description","1:DefaultTab","1:_","1:in_Progress","1:noDate","1:noDate","1:_","1:False","1:_","1:_");
         
         SideBarMenuFunctions.addItemsToSecondSide(text);
         SideBarMenuFunctions.repaintThis();
