@@ -11,11 +11,11 @@ import java.awt.Color;
 
 
 class TopSideHome extends JPanel {
-    JLabel welcomeText_topSideHome_JLabel = new JLabel(); //label with
+    JLabel welcomeText_topSideHome_JLabel = new JLabel(); 
     JButton rapidResearchButton_JButton = new JButton();
-    JButton topButtonE_JLabel = new JButton("Quick Search");
     JTextArea topTextArea_JLabel = new JTextArea(" Hello  \n Welcome back!");
     JLabel topSide_JLabel = new JLabel();
+
     
 // left side top button 
     TopSideHome(){
@@ -23,7 +23,7 @@ class TopSideHome extends JPanel {
         this.setPreferredSize(new Dimension(50,50));
         this.setLayout(new BorderLayout(5,5));
         welcomeTextSettings();
-        rapidResearchButtonSetiings();
+       
         topSideSettings();
     }
     // Left hadside top button
@@ -34,17 +34,13 @@ class TopSideHome extends JPanel {
         this.add(topTextArea_JLabel,BorderLayout.WEST);
     }
 
-    // Right handside top button
-    void rapidResearchButtonSetiings(){
-        rapidResearchButton_JButton.setPreferredSize(new Dimension(150,50));
-        this.add(rapidResearchButton_JButton,BorderLayout.EAST);
-        this.add(topButtonE_JLabel,BorderLayout.EAST);
+  
         
-    }
+
     
     void topSideSettings(){
         topSide_JLabel.setPreferredSize(new Dimension(150,250));
-        topSide_JLabel.setText("<html>INSERT IMAGE HERE </html>");
+        topSide_JLabel.setText("<html>          To Start Click The Gear Button! </html>");
         topSide_JLabel.setOpaque(true);
         topSide_JLabel.setBackground(Color.orange);
         this.add(topSide_JLabel);

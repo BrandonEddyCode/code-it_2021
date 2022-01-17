@@ -133,6 +133,7 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
         addWorkArea.setVisible(true);
         addWorkArea.workArea_MainPanel.setVisible(true);
         addWorkArea.makeNewBoard_JPanel.setVisible(false);
+        addWorkArea.makeNewWorkArea_JPanel.setVisible(false);
         addWorkArea.newBoard_JButton.setVisible(true);
     }
     static void addItemsToSecondSide(String newFilename){

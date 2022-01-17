@@ -20,7 +20,7 @@ public class BoardMainTab extends JPanel {
     
   
     JLabel groupName = new JLabel();
-    static String currentSelected;
+    public static String currentSelected;
     
     static String values;
     static String parts[];
