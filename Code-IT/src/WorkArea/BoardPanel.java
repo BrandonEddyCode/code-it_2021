@@ -68,7 +68,14 @@ class BoardPanel extends JPanel{
             ReadFile.readFile(BoardMainTab.currentSelected,"group"),
             "Board",boardDescriptionText.getText(),
             ReadFile.readFile(BoardMainTab.currentSelected, "tabs"),
-            ReadFile.readFile(BoardMainTab.currentSelected, "task"));
+            ReadFile.readFile(BoardMainTab.currentSelected, "task"),
+            ReadFile.readFile(BoardMainTab.currentSelected, "status"),
+            ReadFile.readFile(BoardMainTab.currentSelected, "Date"),
+            ReadFile.readFile(GroupElements.currentSelected, "deadline"),
+            ReadFile.readFile(GroupElements.currentSelected, "People"),
+            ReadFile.readFile(GroupElements.currentSelected, "checkbox"),
+            ReadFile.readFile(GroupElements.currentSelected, "numbers"),
+            ReadFile.readFile(GroupElements.currentSelected, "Text"));
             
         }
     };
@@ -172,6 +179,7 @@ class BoardPanel extends JPanel{
         static void setBoardName(String Name){
             boardNameText_JLabel.setName(Name);
             boardNameText_JLabel.setText(Name);
+            
         }
         static void setBoardDescription(String Description){
             

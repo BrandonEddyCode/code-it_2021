@@ -26,7 +26,7 @@ public class CreateFile {
         }
     }
 
-    public static void writeFile(String filename,String group,String Type,String Description,String Tabs,String Task){
+    public static void writeFile(String filename,String group,String Type,String Description,String Tabs,String Task,String Status,String Date,String DeadLine,String People,String CheckBox,String Numbers,String Text){
         try {
             FileWriter myWriter = new FileWriter("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" + filename + ".csv",false);
             myWriter.write("Type,");
@@ -39,8 +39,8 @@ public class CreateFile {
             myWriter.write("Text,");
             myWriter.write("Numbers,");
             myWriter.write("Checkbox,");
-            myWriter.write("File,");
-            myWriter.write("TimeLine,");
+            myWriter.write("People,");
+            myWriter.write("DeadLine,");
             myWriter.write("Description,");
             myWriter.write("favourite");
            
@@ -49,13 +49,13 @@ public class CreateFile {
             myWriter.write(Tabs + ","); //options
             myWriter.write(group + ","); //group
             myWriter.write(Task +",");
-            myWriter.write("{},"); //status 
-            myWriter.write("false,"); // date 
-            myWriter.write("false,"); // text
-            myWriter.write("false,"); //numbers
-            myWriter.write("false,"); //checkbox
-            myWriter.write("false,"); //file
-            myWriter.write("false,"); //timeline
+            myWriter.write(Status + ","); //status 
+            myWriter.write(Date+","); // date 
+            myWriter.write(Text+","); // text
+            myWriter.write(Numbers +","); //numbers
+            myWriter.write(CheckBox + ","); //checkbox
+            myWriter.write(People+ ","); //people
+            myWriter.write(DeadLine+","); //deadline
             myWriter.write(Description + ","); //Description
             myWriter.write("false,");
             
@@ -72,7 +72,7 @@ public class CreateFile {
         File newDirectory = new File("files/"+workArea);
         if (!newDirectory.exists()){
             newDirectory.mkdirs();
-            System.out.println("x");
+            
         }
         
     }

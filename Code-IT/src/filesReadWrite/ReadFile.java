@@ -118,7 +118,7 @@ public class ReadFile {
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
-                case "Status":
+                case "status":
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
@@ -173,7 +173,7 @@ public class ReadFile {
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
-                case "file":
+                case "People":
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();
@@ -187,7 +187,7 @@ public class ReadFile {
                 dataScanner.close();
                 typeScanner.close();
                 return fileType;
-                case "timeline":
+                case "deadline":
                 typeScanner.next();
                 typeScanner.next();
                 typeScanner.next();

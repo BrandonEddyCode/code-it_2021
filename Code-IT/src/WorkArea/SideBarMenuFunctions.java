@@ -116,7 +116,7 @@ public final class SideBarMenuFunctions extends JPanel implements ActionListener
         
         //System.out.println(comboBox_JComboBox.getSelectedItem());
         comboBox_JComboBoxSelection = (String) comboBox_JComboBox.getSelectedItem();
-        System.out.println(comboBox_JComboBoxSelection);
+        
         secondHalfContent.removeAll();
         files_jlabelNames.clear();
         secondHalfSidPanelSettings();

@@ -3,12 +3,12 @@ import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.BorderLayout;
 
-
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-
+import filesReadWrite.CreateFile;
 import filesReadWrite.ReadFile;
 
 import java.awt.GridLayout;
@@ -24,7 +24,7 @@ class GroupTabs extends JPanel{
 
     JPanel centre = new JPanel(new BorderLayout());
     JPanel top = new JPanel(new GridLayout(1,7));
-    static JPanel bottom = new JPanel(new GridLayout(10,8));
+    static JPanel bottom = new JPanel(new GridLayout(100,8));
     JScrollPane bottomScrollPane = new JScrollPane(bottom,JScrollPane.VERTICAL_SCROLLBAR_NEVER,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     static GroupElements elements;
     static int height = 55;
@@ -38,6 +38,8 @@ class GroupTabs extends JPanel{
     JLabel file;
     JLabel timeline;
     //buttons
+
+    private static String fileName;
 
     private static String currentGroupNameFile; //
     static String currentGroup;
@@ -98,10 +100,10 @@ class GroupTabs extends JPanel{
         checkbox.setText("CheckBox");
         checkbox.setPreferredSize(new Dimension(0,20));
             //file
-        file.setText("File");
+        file.setText("People/Team");
         file.setPreferredSize(new Dimension(0,20));
             //timeline
-        timeline.setText("Timeline");
+        timeline.setText("Deadline");
         timeline.setPreferredSize(new Dimension(0,20));
         //adds
         tab.add(centre);
@@ -153,12 +155,50 @@ class GroupTabs extends JPanel{
         for (String i : tabsElements.values()) {
             if (groupName.getName() == currentGroup){
                 counter += 1;
-            height += 19;
+            height += 28;
             tab.setPreferredSize(new Dimension(50,height));
             elements = new GroupElements(String.format("%d", counter),"");
             bottom.add(elements);
             }
         }
+
+        JButton addTab = new JButton();
+        addTab.setText("+");
+        addTab.addActionListener(e -> addTabAction());
+        bottom.add(addTab);
+
     
+}
+static void addTabAction(){
+    counter += 1;
+    String value = "DefaultTab";
+    
+    
+
+    CreateFile.writeFile(fileName,
+             "1:Default",
+             ReadFile.readFile(BoardMainTab.currentSelected, "fileType"),
+             ReadFile.readFile(BoardMainTab.currentSelected, "description"),
+             makeTrim(tabsElements),
+             makeTrim(GroupElements.taskValuesMap),
+             makeTrim(GroupElements.statusButtonValuesMap),
+             makeTrim(GroupElements.dateButtonMap),
+             makeTrim(GroupElements.deadLineButtonMap),
+             makeTrim(GroupElements.peopleFieldMap),
+             makeTrim(GroupElements.checkBoxMap),
+             makeTrim(GroupElements.numbersFielMap),
+             makeTrim(GroupElements.textFieldMap));
+
+  
+}
+
+static java.lang.String makeTrim(HashMap<String,String> mapToTrim){
+    mapToTrim.put(String.format("%d", counter), "_");
+    String firstInteraction = mapToTrim.toString().replaceAll("[{},]","");
+    String secondInteraction = firstInteraction.replace("=", ":");
+return secondInteraction;
+}
+static void setFileName(String FileName){
+    fileName = FileName;
 }
 }

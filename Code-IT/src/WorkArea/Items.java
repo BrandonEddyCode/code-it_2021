@@ -67,8 +67,10 @@ public class Items extends JLabel {
         BoardMainTab.setCurrentSelected("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" +this.getName()+ ".csv");
         GroupElements.setCurrentSelected("files/" + SideBarMenuFunctions.comboBox_JComboBoxSelection + "/" +this.getName()+ ".csv",this.getName());
       
+        GroupTabs.setFileName(this.getName());
         BoardMainTab.setGroups();
         GroupTabs.takeTabsFromFile();
+        
         
     }
     
