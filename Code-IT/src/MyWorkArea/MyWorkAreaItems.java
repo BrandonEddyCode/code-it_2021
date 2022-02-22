@@ -44,7 +44,7 @@ public class MyWorkAreaItems extends JPanel {
     void MyWorkAreaAction () {
         if (isExpanded) {
             isExpanded = false;
-            a.setPreferredSize(new Dimension(2000,100));
+            a.setPreferredSize(new Dimension(2000,10000));
             a.revalidate();
             a.repaint();
         } 

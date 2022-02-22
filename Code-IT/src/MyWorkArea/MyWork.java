@@ -74,6 +74,7 @@ JPanel myWorkPadding;
          rearPanel.setLayout(new BoxLayout(rearPanel, BoxLayout.Y_AXIS));
          rearPanel.add(searchPanel);
          rearPanel.add(new MyWorkAreaItems("Overdue /"));
+         rearPanel.add(BorderLayout.WEST);
          rearPanel.add(new MyWorkAreaItems("Today / "));
          rearPanel.add(new MyWorkAreaItems("This week /"));
          rearPanel.add(new MyWorkAreaItems("Next week /"));
